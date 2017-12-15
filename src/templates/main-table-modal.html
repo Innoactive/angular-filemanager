@@ -1,16 +1,16 @@
-<table class="table table-condensed table-modal-condensed mb0">
+<table class="cloud-file-manager table table-condensed table-modal-condensed mb0">
     <thead>
         <tr>
             <th>
                 <a href="" ng-click="order('model.name')">
                     {{"name" | translate}}
-                    <span class="sortorder" ng-show="predicate[1] === 'model.name'" ng-class="{reverse:reverse}"></span>
+                    <span class="cloud-file-manager sortorder" ng-show="predicate[1] === 'model.name'" ng-class="{reverse:reverse}"></span>
                 </a>
             </th>
-            <th class="text-right"></th>
+            <th class="cloud-file-manager text-right"></th>
         </tr>
     </thead>
-    <tbody class="file-item">
+    <tbody class="cloud-file-manager file-item">
         <tr ng-show="fileNavigator.requesting">
             <td colspan="2">
                 <div ng-include="config.tplPath + '/spinner.html'"></div>
@@ -20,8 +20,8 @@
             <td>
                 {{"no_folders_in_folder" | translate}}...
             </td>
-            <td class="text-right">
-                <button class="btn btn-sm btn-default" ng-click="fileNavigator.upDir()">{{"go_back" | translate}}</button>
+            <td class="cloud-file-manager text-right">
+                <button class="cloud-file-manager btn btn-sm btn-default" ng-click="fileNavigator.upDir()">{{"go_back" | translate}}</button>
             </td>
         </tr>
         <tr ng-show="!fileNavigator.requesting && fileNavigator.error">
@@ -32,13 +32,13 @@
         <tr ng-repeat="item in fileNavigator.fileList | orderBy:predicate:reverse" ng-show="!fileNavigator.requesting && item.model.type === 'dir'" ng-if="!selectedFilesAreChildOfPath(item)">
             <td>
                 <a href="" ng-click="fileNavigator.folderClick(item)" title="{{item.model.name}} ({{item.model.size | humanReadableFileSize}})">
-                    <i class="glyphicon glyphicon-folder-close"></i>
+                    <i class="cloud-file-manager glyphicon glyphicon-folder-close"></i>
                     {{item.model.name | strLimit : 32}}
                 </a>
             </td>
-            <td class="text-right">
-                <button class="btn btn-sm btn-default" ng-click="select(item)">
-                    <i class="glyphicon glyphicon-hand-up"></i> {{"select_this" | translate}}
+            <td class="cloud-file-manager text-right">
+                <button class="cloud-file-manager btn btn-sm btn-default" ng-click="select(item)">
+                    <i class="cloud-file-manager glyphicon glyphicon-hand-up"></i> {{"select_this" | translate}}
                 </button>
             </td>
         </tr>

@@ -1,14 +1,14 @@
 <div ng-controller="FileManagerCtrl">
     <div ng-include="config.tplPath + '/navbar.html'"></div>
 
-    <div class="container-fluid">
-        <div class="row">
+    <div class="cloud-file-manager container-fluid">
+        <div class="cloud-file-manager row">
 
-            <div class="col-sm-4 col-md-3 sidebar file-tree animated slow fadeIn" ng-include="config.tplPath + '/sidebar.html'" ng-show="config.sidebar &amp;&amp; fileNavigator.history[0]">
+            <div class="cloud-file-manager col-sm-4 col-md-3 sidebar file-tree animated slow fadeIn" ng-include="config.tplPath + '/sidebar.html'" ng-show="config.sidebar &amp;&amp; fileNavigator.history[0]">
             </div>
 
-            <div class="main" ng-class="config.sidebar &amp;&amp; fileNavigator.history[0] &amp;&amp; 'col-sm-8 col-md-9'" ngf-model-options="{updateOn: 'drop', allowInvalid: false, debounce: 0}" ngf-drop="addForUpload($files)" ngf-drag-over-class="'upload-dragover'" ngf-multiple="true">
-                <div ng-include="config.tplPath + '/' + viewTemplate" class="main-navigation clearfix"></div>
+            <div class="cloud-file-manager main" ng-class="config.sidebar &amp;&amp; fileNavigator.history[0] &amp;&amp; 'col-sm-8 col-md-9'" ngf-model-options="{updateOn: 'drop', allowInvalid: false, debounce: 0}" ngf-drop="addForUpload($files)" ngf-drag-over-class="'upload-dragover'" ngf-multiple="true">
+                <div ng-include="config.tplPath + '/' + viewTemplate" class="cloud-file-manager main-navigation clearfix"></div>
             </div>
         </div>
     </div>

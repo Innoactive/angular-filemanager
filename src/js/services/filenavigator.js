@@ -45,7 +45,7 @@
         };
 
         FileNavigator.prototype.list = function() {
-            return this.apiMiddleware.list(this.currentPath, this.deferredHandler.bind(this));
+            return this.apiMiddleware.list(this.pathId, this.deferredHandler.bind(this));
         };
 
         FileNavigator.prototype.refresh = function() {
@@ -120,15 +120,23 @@
 
         FileNavigator.prototype.folderClick = function(item) {
             this.currentPath = [];
+            if (this.lastPathIds === undefined) {
+                this.lastPathIds = [];
+            }
+            this.lastPathIds.push(this.pathId || '');
+            this.pathId = '';
             if (item && item.isFolder()) {
                 this.currentPath = item.model.fullPath().split('/').splice(1);
+                this.pathId = item.model.id;
             }
+            window.fm=this;
             this.refresh();
         };
 
         FileNavigator.prototype.upDir = function() {
             if (this.currentPath[0]) {
                 this.currentPath = this.currentPath.slice(0, -1);
+                this.pathId = this.lastPathIds.pop();
                 this.refresh();
             }
         };

@@ -22,7 +22,7 @@
         };
 
         ApiMiddleware.prototype.list = function(path, customDeferredHandler) {
-            return this.apiHandler.list(fileManagerConfig.listUrl, this.getPath(path), customDeferredHandler);
+            return this.apiHandler.list(fileManagerConfig.listUrl, path, customDeferredHandler);
         };
 
         ApiMiddleware.prototype.copy = function(files, path) {

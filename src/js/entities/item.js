@@ -4,6 +4,7 @@
 
         var Item = function(model, path) {
             var rawModel = {
+                id: model && model.id || '',
                 name: model && model.name || '',
                 path: path || [],
                 type: model && model.type || 'file',
@@ -23,6 +24,7 @@
 
             this.model = angular.copy(rawModel);
             this.tempModel = angular.copy(rawModel);
+            window.afterTest = this.model.id;
 
             function parseMySQLDate(mysqlDate) {
                 var d = (mysqlDate || '').toString().split(/[- :]/);
